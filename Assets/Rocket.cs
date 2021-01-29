@@ -27,6 +27,21 @@ public class Rocket : MonoBehaviour
         Rotation();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        switch(collision.gameObject.tag)
+        {
+            case "Friendly":
+                break;
+            case "Fuel":
+                print("Refueling");
+                break;
+            default:
+                print("rocket is brocken");
+                break;
+        }
+    }
+
     private void Rotation()
     {
         if (Input.GetKey(KeyCode.A))
